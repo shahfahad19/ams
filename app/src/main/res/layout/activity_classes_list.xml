@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClassesList"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5sp"
+        android:fontFamily="@font/bold"
+        android:gravity="center"
+        android:text="Welcome User"
+        android:textColor="#2394f4"
+        android:textSize="30sp"
+        android:visibility="visible"
+        android:padding="5sp"/>
+
+    <TextView
+        android:id="@+id/notAvailable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You haven't added any classes yet.\nAdd a Class From the Menu"
+        android:fontFamily="@font/bold"
+        android:textColor="#2394f4"
+        android:textSize="35sp"
+        android:layout_marginLeft="5sp"
+        android:layout_marginTop="200sp"
+        android:gravity="center"
+        android:padding="5sp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/msgClasses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classes List:"
+        android:fontFamily="@font/bold"
+        android:textColor="#2394f4"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:padding="5sp"
+        android:layout_marginTop="10sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+</LinearLayout>

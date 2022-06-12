@@ -1,57 +1,39 @@
 package com.shahfahad.ams;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.os.Handler;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
-        CheckBox togglePass = findViewById(R.id.passwordToggle);
-        EditText pass = findViewById(R.id.password),
-                username = findViewById(R.id.username);
-        TextView signupText = findViewById(R.id.signupBtn),
-                resetPassText = findViewById(R.id.forgotPassword);
-        ;
-
-
-        signupText.setOnClickListener(new View.OnClickListener() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Signup.class);
-                startActivity(intent);
-            }
-        });
+            public void run() {
+                sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
-        resetPassText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ResetPassword.class);
-                startActivity(intent);
-            }
-        });
-
-        togglePass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    pass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                String loggedin = sharedPreferences.getString("Loggedin", "false");
+                if (loggedin.equals("false")) {
+                    Intent i = new Intent(getApplicationContext(), Login.class);
+                    startActivity(i);
+                    finish();
                 }
                 else {
-                    pass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                    Intent intent  = new Intent(getApplicationContext(), ClassesList.class);
+                    intent.putExtra("username", loggedin);
+                    startActivity(intent);
+                    finish();
                 }
             }
-        });
+        }, 1000);
     }
 }
