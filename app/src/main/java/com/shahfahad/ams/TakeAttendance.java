@@ -71,7 +71,7 @@ public class TakeAttendance extends AppCompatActivity {
         totalStudents = studentsInt;
 
         LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd MMM yyyy hh:mm aa");
 
         String formattedDate = myDateObj.format(myFormatObj);
 
