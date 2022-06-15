@@ -74,7 +74,7 @@
             android:background="@drawable/border"
             android:ems="10"
             android:fontFamily="@font/medium"
-            android:hint="Description"
+            android:hint="Description (Optional)"
             android:inputType="text"
             android:textColorHighlight="#838383"
             android:textColorLink="#00FFFFFF"
