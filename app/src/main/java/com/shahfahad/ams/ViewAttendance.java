@@ -19,6 +19,8 @@ public class ViewAttendance extends AppCompatActivity {
         students = findViewById(R.id.vaStudents);
         summary = findViewById(R.id.vaSummary);
 
+        setTitle("Attendance Summary");
+
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {

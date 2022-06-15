@@ -84,7 +84,7 @@ public class ClassesList extends AppCompatActivity {
         db = new LoginDB(this);
 
 
-        setTitle("Dashboard");
+        setTitle("Your Classes");
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();

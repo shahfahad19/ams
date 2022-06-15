@@ -60,6 +60,8 @@ public class TakeAttendance extends AppCompatActivity {
 
         rollNo.setText("Roll no. " + currentStudent);
 
+        setTitle("Take Attendance");
+
 
         int studentsInt = 0;
         try {
