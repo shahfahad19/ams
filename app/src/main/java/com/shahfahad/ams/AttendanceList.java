@@ -14,23 +14,45 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class AttendanceList extends AppCompatActivity {
 
     AttendanceDB attendanceDB;
-    SharedPreferences sharedPreferences;
-    String username, subjectName, students;
+    String username, nameOfClass, students;
     List<String> dates = new ArrayList<String>(),
             totals = new ArrayList<String>(),
             presents = new ArrayList<String>(),
             absents = new ArrayList<String>(),
             leaves = new ArrayList<String>(),
-            absentlist = new ArrayList<String>();
+            absentlist = new ArrayList<String>(),
+            leavelist = new ArrayList<String>();
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.attendance_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id){
+            case R.id.takeNewAttendance:
+                Intent takeAttIntent = new Intent(getApplicationContext(), TakeAttendance.class);
+                takeAttIntent.putExtra("class", nameOfClass);
+                takeAttIntent.putExtra("students", students);
+                takeAttIntent.putExtra("username", username);
+                startActivity(takeAttIntent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
 
     @Override
@@ -38,27 +60,33 @@ public class AttendanceList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_list);
 
-        TextView welcome = findViewById(R.id.welcomeText);
-        TextView msg = findViewById(R.id.notAvailable);
-        TextView cmsg = findViewById(R.id.msgClasses);
+        TextView className = findViewById(R.id.className);
+        TextView classStd = findViewById(R.id.classStudents);
+        TextView notAvail = findViewById(R.id.notAvailableAtt);
+        TextView msgAtt = findViewById(R.id.msgAtt);
 
 
-        setTitle("Dashboard");
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {
             username = (String) b.get("username");
-            subjectName = (String) b.get("subject");
+            nameOfClass = (String) b.get("subject");
             students = (String) b.get("students");
-
         }
-        attendanceDB = new AttendanceDB(this, username, subjectName);
+        nameOfClass = nameOfClass.substring(0, 1).toUpperCase() + nameOfClass.substring(1);
+
+        setTitle(nameOfClass + ": Attendance");
+        className.setText("Subject: "+ nameOfClass);
+        classStd.setText("Students: "+students);
+
+
+        attendanceDB = new AttendanceDB(this, username, nameOfClass);
         Cursor attendances = attendanceDB.getAttendances();
+
         if (attendances.getCount() == 0) {
-            msg.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "No Classes Available", Toast.LENGTH_SHORT).show();
-            cmsg.setVisibility(View.GONE);
+            notAvail.setVisibility(View.VISIBLE);
+            msgAtt.setVisibility(View.GONE);
             return;
         }
 
@@ -70,12 +98,10 @@ public class AttendanceList extends AppCompatActivity {
                 absents.add(attendances.getString(3));
                 leaves.add(attendances.getString(4));
                 absentlist.add(attendances.getString(5));
+                leavelist.add(attendances.getString(6));
             }
             RecyclerView rv = findViewById(R.id.recyclerView);
             rv.setLayoutManager(new LinearLayoutManager(this));
-
-
-
 
             String[] datesArr = dates.toArray(new String[0]);
             String[] totalArr = totals.toArray(new String[0]);
@@ -83,9 +109,8 @@ public class AttendanceList extends AppCompatActivity {
             String[] absentsArr = absents.toArray(new String[0]);
             String[] leaveArr = leaves.toArray(new String[0]);
             String[] absentListArr = absentlist.toArray(new String[0]);
-
-            rv.setAdapter(new AttendanceAdapter(datesArr, totalArr, presentArr, absentsArr, leaveArr, absentListArr));
-
+            String[] leaveListArr = leavelist.toArray(new String[0]);
+            rv.setAdapter(new AttendanceAdapter(datesArr, totalArr, presentArr, absentsArr, leaveArr, absentListArr, leaveListArr));
         }
     }
 
@@ -96,8 +121,17 @@ public class AttendanceList extends AppCompatActivity {
         startActivity(getIntent());
     }
 
-    public void onClickCalled(String anyValue) {
-        // Call another acitivty here and pass some arguments to it.
-        Toast.makeText(this, anyValue, Toast.LENGTH_SHORT).show();
+    public void onClickCalled(String date, String total, String present, String absent, String leave, String absentlist, String leaveList) {
+        Intent takeAttIntent = new Intent(getApplicationContext(), ViewAttendance.class);
+        takeAttIntent.putExtra("class", nameOfClass);
+        takeAttIntent.putExtra("students", students);
+        takeAttIntent.putExtra("date", date);
+        takeAttIntent.putExtra("total", total);
+        takeAttIntent.putExtra("present", present);
+        takeAttIntent.putExtra("absent", absent);
+        takeAttIntent.putExtra("leave", leave);
+        takeAttIntent.putExtra("absentlist", absentlist);
+        takeAttIntent.putExtra("leavelist", leaveList);
+        startActivity(takeAttIntent);
     }
 }

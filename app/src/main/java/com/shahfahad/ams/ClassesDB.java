@@ -35,7 +35,6 @@ public class ClassesDB extends SQLiteOpenHelper {
 
         long result = MyDB.insert("classes", null, contentValues);
 
-
         if(result==-1) return false;
         else
             return true;
@@ -55,64 +54,5 @@ public class ClassesDB extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("select * from classes", null);
         return res;
     }
-
-//    public Boolean checkusernamepassword(String username, String password){
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from users where username = ? and password = ?", new String[] {username,password});
-//        if(cursor.getCount()>0)
-//            return true;
-//        else
-//            return false;
-//    }
-//
-//    @SuppressLint("Range")
-//    public String getName(String username) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[]{username});
-//        String fullname = "";
-//        if (cursor.moveToFirst()) {
-//            fullname = cursor.getString(cursor.getColumnIndex("fullname"));
-//
-//        }
-//        return fullname;
-//    }
-//
-//    @SuppressLint("Range")
-//    public Boolean checkEmail (String user, String enteredEmail) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        Cursor cursor = MyDB.rawQuery("Select * from users where username = ?", new String[]{user});
-//        String email = "";
-//        if (cursor.moveToFirst()) {
-//            email = cursor.getString(cursor.getColumnIndex("email"));
-//
-//        }
-//        if (enteredEmail.equals(email))
-//            return true;
-//        else
-//            return false;
-//    }
-//
-//    public Boolean updatePassword(String username, String email, String pass) {
-//        SQLiteDatabase MyDB = this.getWritableDatabase();
-//        ContentValues contentValues= new ContentValues();
-//        String fullname = getName(username);
-//        Boolean correctEmail = checkEmail(username, email);
-//
-//
-//        contentValues.put("fullname", fullname);
-//        contentValues.put("username", username);
-//        contentValues.put("email", email);
-//        contentValues.put("password", pass);
-//
-//
-//        long result = -1;
-//        if (correctEmail) {
-//            result = MyDB.update("users", contentValues, "username = ?", new String[]{username});
-//        }
-//
-//        if(result==-1) return false;
-//        else
-//            return true;
-//    }
 
 }

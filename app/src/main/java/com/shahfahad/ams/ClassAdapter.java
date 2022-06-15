@@ -41,7 +41,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.viewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((ClassesList) v.getContext()).onClickCalled(nameStr, Integer.parseInt(stdStr));
+                ((ClassesList) v.getContext()).onClickCalled(nameStr, stdStr);
             }
         });
     }

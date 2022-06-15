@@ -11,24 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.viewHolder> {
 
-    private String[] dates, total, present, absent, leave, absentlist;
+    private String[] dates, total, present, absent, leave, absentlist, leavelist;
 
 
 
-    public AttendanceAdapter(String dates[], String total[], String present[], String absent[], String leave[], String[] absentList) {
+    public AttendanceAdapter(String dates[], String total[], String present[], String absent[], String leave[], String[] absentList, String[] leavelist) {
         this.dates = dates;
         this.total = total;
         this.present = present;
         this.absent = absent;
         this.leave = leave;
         this.absentlist = absentList;
+        this.leavelist = leavelist;
     }
 
     @NonNull
     @Override
     public viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.class_item,parent,false);
+        View view = inflater.inflate(R.layout.attendance_item,parent,false);
 
         return new viewHolder(view);
     }
@@ -41,17 +42,18 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.vi
         String absentStr = absent[position];
         String leaveStr = leave[position];
         String absentList = absentlist[position];
+        String leaveList = leavelist[position];
 
         holder.dateTxt.setText(dateStr);
-        holder.totalTxt.setText(totalStr);
-        holder.presentTxt.setText(presentStr);
-        holder.absentTxt.setText(absentStr);
-        holder.leaveTxt.setText(leaveStr);
+        holder.totalTxt.setText("Total: "+totalStr);
+        holder.presentTxt.setText("Present: "+presentStr);
+        holder.absentTxt.setText("Absent: "+absentStr);
+        holder.leaveTxt.setText("Leave: "+leaveStr);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((AttendanceList) v.getContext()).onClickCalled(dateStr);
+                ((AttendanceList) v.getContext()).onClickCalled(dateStr, totalStr, presentStr, absentStr, leaveStr, absentList, leaveList);
             }
         });
     }

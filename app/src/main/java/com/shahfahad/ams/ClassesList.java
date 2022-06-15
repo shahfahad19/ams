@@ -33,7 +33,6 @@ public class ClassesList extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
@@ -129,9 +128,7 @@ public class ClassesList extends AppCompatActivity {
         startActivity(getIntent());
     }
 
-    public void onClickCalled(String subjectname, int students) {
-        // Call another acitivty here and pass some arguments to it.
-        Toast.makeText(this, subjectname, Toast.LENGTH_SHORT).show();
+    public void onClickCalled(String subjectname, String students) {
         Intent i = new Intent(getApplicationContext(), AttendanceList.class);
         i.putExtra("username", username);
         i.putExtra("subject", subjectname);

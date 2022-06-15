@@ -26,7 +26,6 @@ public class Login extends AppCompatActivity {
     TextView signupText, resetPassText;
     Button loginBtn;
 
-    //Variable used to finish this activity after user signs up
     public static Activity LoginActivity;
 
     @Override
@@ -62,7 +61,6 @@ public class Login extends AppCompatActivity {
                     Boolean checkuser = myDb.checkusername(user);
                     if (checkuser == true) {
                         if(checkuserpass==true){
-                            Toast.makeText(Login.this, "Signed in", Toast.LENGTH_SHORT).show();
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putString("Loggedin", user);
                             editor.commit();

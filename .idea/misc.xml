@@ -9,7 +9,7 @@
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.13119143239625167" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout-w936dp/activity_login.xml" value="0.13183060109289618" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_add_class.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_attendance_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_attendance_list.xml" value="0.15" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_class_list.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_dashboard.xml" value="0.22" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_login.xml" value="0.17481884057971014" />
@@ -17,8 +17,11 @@
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_reset_password.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_signup.xml" value="0.17481884057971014" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_splash_screen.xml" value="0.17481884057971014" />
-        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/attendance_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_take_attendance.xml" value="0.22" />
+        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/activity_view_attendance.xml" value="0.1" />
+        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/attendance_item.xml" value="0.33" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/layout/class_item.xml" value="0.33" />
+        <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/menu/attendance_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Shah Fahad/AndroidStudioProjects/AttendanceManagmentSystem/app/src/main/res/menu/main_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
