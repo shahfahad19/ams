@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10sp"
+        android:padding="13sp"
         >
 
         <ImageView
@@ -46,9 +46,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
                     android:text="Total: 0"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:fontFamily="@font/bold"
                     android:textColor="#232323"
+                    android:gravity="center"
                     />
                 <TextView
                     android:id="@+id/present"
@@ -57,8 +58,9 @@
                     android:layout_weight="10"
                     android:text="Present: 0"
                     android:textColor="@android:color/holo_green_dark"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:fontFamily="@font/bold"
+                    android:gravity="center"
                     />
                 <TextView
                     android:id="@+id/absent"
@@ -66,9 +68,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
                     android:text="Absent: 0"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:fontFamily="@font/bold"
                     android:textColor="#ff0000"
+                    android:gravity="center"
                     />
                 <TextView
                     android:id="@+id/leave"
@@ -76,9 +79,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="10"
                     android:text="Leave: 0"
-                    android:textSize="14sp"
+                    android:textSize="13sp"
                     android:fontFamily="@font/bold"
                     android:textColor="#ff8000"
+                    android:gravity="center"
                     />
             </LinearLayout>
         </LinearLayout>

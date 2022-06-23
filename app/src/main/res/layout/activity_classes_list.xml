@@ -16,7 +16,6 @@
         android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="Welcome User"
-        android:textColor="#2394f4"
         android:textSize="30sp"
         android:visibility="visible"
         android:padding="5sp"/>

@@ -56,8 +56,6 @@ public class TakeAttendance extends AppCompatActivity {
 
         className.setText("Class: " + nameOfClass);
         students.setText("Students: "+noOfStudents);
-
-
         rollNo.setText("Roll no. " + currentStudent);
 
         setTitle("Take Attendance");
@@ -71,12 +69,9 @@ public class TakeAttendance extends AppCompatActivity {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
         totalStudents = studentsInt;
-
         LocalDateTime myDateObj = LocalDateTime.now();
-        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd MMM yyyy HH:mm");
-
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd MMM yyyy hh:mm a");
         String formattedDate = myDateObj.format(myFormatObj);
-
         attendanceDB = new AttendanceDB(this, username, nameOfClass);
 
         presentBtn.setOnClickListener(new View.OnClickListener() {
@@ -90,7 +85,6 @@ public class TakeAttendance extends AppCompatActivity {
                 }
                 else {
                     presentStudents++;
-
                     Boolean insert = attendanceDB.insertData(formattedDate, totalStudents, presentStudents, absentStudents, onLeaveStudents, absentRollNo, leaveRollNo);
                     if (insert == true)
                         Toast.makeText(TakeAttendance.this, "Attendance saved successfully", Toast.LENGTH_SHORT).show();
@@ -103,7 +97,6 @@ public class TakeAttendance extends AppCompatActivity {
 
             }
         });
-
 
 
         absentBtn.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +144,6 @@ public class TakeAttendance extends AppCompatActivity {
                     attLayout.setVisibility(View.GONE);
                     attResultLayout.setVisibility(View.VISIBLE);
                     attResult.setText("Attendance Time: "+formattedDate+"\n\nTotal Students: "+noOfStudents+"\nPresent: "+presentStudents+"\nAbsent: "+absentStudents+"\nLeave: "+onLeaveStudents+"\n\nAbsent Students: \n"+absentRollNo+"\n\nOn Leave Students: \n"+leaveRollNo);
-
                 }
             }
         });

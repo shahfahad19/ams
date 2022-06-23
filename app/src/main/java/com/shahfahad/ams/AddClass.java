@@ -3,7 +3,6 @@ package com.shahfahad.ams;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,8 +35,6 @@ public class AddClass extends AppCompatActivity {
 
 
         ClassDB = new ClassesDB(this, username);
-
-        Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

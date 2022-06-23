@@ -1,13 +1,14 @@
 package com.shahfahad.ams;
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
 
 public class AttendanceDB extends SQLiteOpenHelper {
+
+    private String tableName;
 
     public AttendanceDB(Context context, String DatabaseName, String tableName) {
         //Creating unique database for every subject
@@ -16,7 +17,7 @@ public class AttendanceDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
-        MyDB.execSQL("create Table attendance(date TEXT, total INTEGER, present INTEGER, absent INTEGER, leave INTEGER, absentlist TEXT, leavelist TEXT)");
+        MyDB.execSQL("create Table attendance(date TEXT primary key, total INTEGER, present INTEGER, absent INTEGER, leave INTEGER, absentlist TEXT, leavelist TEXT)");
     }
 
     @Override
@@ -49,5 +50,10 @@ public class AttendanceDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from attendance", null);
         return res;
+    }
+
+    public Integer deleteAtt(String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("attendance", "date = ?", new String[]{date});
     }
 }

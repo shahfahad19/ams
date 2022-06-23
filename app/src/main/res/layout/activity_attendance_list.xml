@@ -15,7 +15,6 @@
         android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="Class: Test"
-        android:textColor="#2394f4"
         android:textSize="20sp"
         android:visibility="visible"
         android:paddingLeft="5sp"/>
@@ -26,7 +25,6 @@
         android:fontFamily="@font/bold"
         android:gravity="center"
         android:text="Students"
-        android:textColor="#2394f4"
         android:textSize="20sp"
         android:visibility="visible"
         android:paddingLeft="5sp"/>

@@ -24,7 +24,6 @@
             android:gravity="center"
             android:paddingLeft="5sp"
             android:text="Class: Test"
-            android:textColor="#2394f4"
             android:textSize="20sp"
             android:visibility="visible" />
 
@@ -36,7 +35,6 @@
             android:gravity="center"
             android:paddingLeft="5sp"
             android:text="Students: 00"
-            android:textColor="#2394f4"
             android:textSize="20sp"
             android:visibility="visible" />
 
@@ -62,12 +60,12 @@
                 android:fontFamily="@font/bold"
                 android:paddingLeft="5sp"
                 android:textColor="#fff"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:layout_marginLeft="50sp"
                 android:layout_marginRight="50sp"
                 android:layout_marginBottom="10sp"
                 android:height="48sp"
-                android:text="Attendance Result\n"
+                android:text="Attendance Summary"
                 android:background="#2394f4"
                 android:gravity="center"
                 >
@@ -87,5 +85,20 @@
             </TextView>
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="160sp"
+        android:id="@+id/deletebtn"
+        android:layout_height="wrap_content"
+        android:background="#232323"
+        android:textColor="#fff"
+        android:text="Delete"
+        android:fontFamily="@font/bold"
+        android:letterSpacing="0.15"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

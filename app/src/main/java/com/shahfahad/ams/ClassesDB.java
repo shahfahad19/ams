@@ -1,11 +1,9 @@
 package com.shahfahad.ams;
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import androidx.annotation.Nullable;
 
 public class ClassesDB extends SQLiteOpenHelper {
 
@@ -53,6 +51,11 @@ public class ClassesDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from classes", null);
         return res;
+    }
+
+    public Integer deleteClass(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("classes", "name = ?", new String[]{name});
     }
 
 }

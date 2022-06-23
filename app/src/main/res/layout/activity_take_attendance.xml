@@ -24,7 +24,6 @@
             android:gravity="center"
             android:paddingLeft="5sp"
             android:text="Class: Test"
-            android:textColor="#2394f4"
             android:textSize="20sp"
             android:visibility="visible" />
 
@@ -36,7 +35,6 @@
             android:gravity="center"
             android:paddingLeft="5sp"
             android:text="Students: 00"
-            android:textColor="#2394f4"
             android:textSize="20sp"
             android:visibility="visible" />
 
@@ -69,12 +67,12 @@
                 android:fontFamily="@font/bold"
                 android:paddingLeft="5sp"
                 android:textColor="#fff"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:layout_marginLeft="50sp"
                 android:layout_marginRight="50sp"
                 android:layout_marginBottom="10sp"
                 android:height="48sp"
-                android:text="Attendance Result\n"
+                android:text="Attendance Summary"
                 android:background="#2394f4"
                 android:gravity="center"
                 >

@@ -14,15 +14,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AttendanceList extends AppCompatActivity {
 
     AttendanceDB attendanceDB;
+    ClassesDB classesDB;
+
     String username, nameOfClass, students;
     List<String> dates = new ArrayList<String>(),
             totals = new ArrayList<String>(),
@@ -49,6 +51,28 @@ public class AttendanceList extends AppCompatActivity {
                 takeAttIntent.putExtra("username", username);
                 startActivity(takeAttIntent);
                 return true;
+            case R.id.deleteClass:
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setCancelable(true);
+                alertDialog.setTitle("Delete Class?");
+                alertDialog.setIcon(R.drawable.logo);
+                alertDialog.setMessage("Are you sure?");
+                alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        int deleteRows = classesDB.deleteClass(nameOfClass);
+                        if (deleteRows > 0) {
+                            Toast.makeText(AttendanceList.this, "Class deleted!", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else {
+                            Toast.makeText(AttendanceList.this, "Failed to delete", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                alertDialog.setNegativeButton("No", null);
+                alertDialog.show();
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -66,7 +90,6 @@ public class AttendanceList extends AppCompatActivity {
         TextView msgAtt = findViewById(R.id.msgAtt);
 
 
-
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if (b != null) {
@@ -82,6 +105,7 @@ public class AttendanceList extends AppCompatActivity {
 
 
         attendanceDB = new AttendanceDB(this, username, nameOfClass);
+        classesDB = new ClassesDB(this, username);
         Cursor attendances = attendanceDB.getAttendances();
 
         if (attendances.getCount() == 0) {
@@ -132,6 +156,9 @@ public class AttendanceList extends AppCompatActivity {
         takeAttIntent.putExtra("leave", leave);
         takeAttIntent.putExtra("absentlist", absentlist);
         takeAttIntent.putExtra("leavelist", leaveList);
+        takeAttIntent.putExtra("username", username);
+
+
         startActivity(takeAttIntent);
     }
 }

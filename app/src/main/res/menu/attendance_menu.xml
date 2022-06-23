@@ -8,5 +8,7 @@
     <item  android:id="@+id/takeNewAttendance"
         android:title="Take Attendance"
         />
+    <item android:id="@+id/deleteClass"
+        android:title="Delete Class"/>
 
 </menu>
